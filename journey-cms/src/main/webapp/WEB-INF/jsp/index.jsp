@@ -66,6 +66,24 @@
 				</dd>
 			</dl>
 			<dl id="menu-admin">
+				<dt><i class="Hui-iconfont">&#xe62d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="/user" data-title="用户列表" href="javascript:void(0)">用户列表</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<dl id="menu-comments">
+				<dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+				</dt>
+				<dd>
+					<ul>
+						<li><a data-href="/admin" data-title="评论列表" href="javascript:;">评论列表</a>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+			<dl id="menu-admin">
 				<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 				<dd>
 					<ul>

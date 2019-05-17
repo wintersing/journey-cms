@@ -1,5 +1,7 @@
 package com.lt.journey_cms.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,22 +15,17 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 
 	@Override
-	public User findUserByPhone(String mobile) {
+	public List<User> findUser(int i, int pagesize) {
 		// TODO Auto-generated method stub
-		return userDao.findUserByPhone(mobile);
+		return userDao.findUser(i, pagesize);
 	}
 
 	@Override
-	public void addUser(User user) {
+	public int findCount() {
 		// TODO Auto-generated method stub
-		userDao.addUser(user);
+		return userDao.findCount();
 	}
 
-	@Override
-	public User findUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return userDao.findUserByUsername(username);
-	}
 
 	
 }
