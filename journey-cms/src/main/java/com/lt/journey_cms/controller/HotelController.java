@@ -128,17 +128,22 @@ public class HotelController {
 	}
 	
 
-	/**
-	 * 游记删除
-	 * @param model
-	 * @param id
-	 * @return
-	 */
 	@RequestMapping(value = "/hotelDel/{id}", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public String hotelDel(Model model, @PathVariable("id") String id) {
 
 		hotelService.hotelDel(id);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("status", true);
+		return jsonObject.toJSONString();
+	}
+	
+	
+	@RequestMapping(value = "/hotelsDel/{idStr}", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String hotelsDel(Model model, @PathVariable("idStr") String idStr) {
+		String[] ids = idStr.split(",");
+		hotelService.hotelsDel(ids);
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("status", true);
 		return jsonObject.toJSONString();

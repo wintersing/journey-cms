@@ -73,4 +73,10 @@ public class PlacesServiceImpl implements PlacesService {
 		placesDao.placesAdd(places);
 	}
 
+	@Override
+	public void placessDel(String[] ids) {
+		// TODO Auto-generated method stub
+		placesDao.placessDel(ids);
+	}
+
 }

@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lt.journey_cms.dao.NewsDao">
+	 <delete id="newssDel">
+        delete from news where id in
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+        
+    </delete>
 
 	<insert id="addNews" parameterType="java.util.List">
 		INSERT IGNORE INTO news(id, title, url, catLabel2, recommend, updatetime) values

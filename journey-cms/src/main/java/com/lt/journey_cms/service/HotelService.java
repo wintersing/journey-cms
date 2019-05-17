@@ -22,6 +22,7 @@ public interface HotelService {
 	public void editHotel(HotelDes hotelDes);
 //
 	public void hotelDel(String id);
+	public void hotelsDel(String[] ids);
 
 
 }

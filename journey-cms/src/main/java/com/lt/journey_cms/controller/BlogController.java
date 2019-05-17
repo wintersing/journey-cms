@@ -155,5 +155,16 @@ public class BlogController {
 			return jsonObject.toJSONString();
 		}
 	}
+	
+	
+	@RequestMapping(value = "/blogsDel/{idStr}", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String blogsDel(Model model, @PathVariable("idStr") String idStr) {
+		String[] ids = idStr.split(",");
+		blogService.blogsDel(ids);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("status", true);
+		return jsonObject.toJSONString();
+	}
 
 }

@@ -28,4 +28,6 @@ public interface NewsDao {
 	@Delete("delete FROM news WHERE id = #{id}")
 	public void blogDel(String id);
 
+	public void newssDel(String[] ids);
+
 }

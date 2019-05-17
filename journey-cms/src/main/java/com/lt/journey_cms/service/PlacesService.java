@@ -25,4 +25,6 @@ public interface PlacesService {
 
 	public void placesDel(String id);
 
+	public void placessDel(String[] ids);
+
 }

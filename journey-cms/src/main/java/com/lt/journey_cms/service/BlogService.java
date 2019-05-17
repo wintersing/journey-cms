@@ -20,4 +20,6 @@ public interface BlogService {
 
 	public void blogDel(String id);
 
+	public void blogsDel(String[] ids);
+
 }

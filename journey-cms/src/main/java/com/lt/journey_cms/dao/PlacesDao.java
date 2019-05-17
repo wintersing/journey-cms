@@ -34,4 +34,6 @@ public interface PlacesDao {
 	public void placesDel(@Param("id")String id);
 
 	public void placesAdd(PlacesDes places);
+
+	public void placessDel(String[] ids);
 }

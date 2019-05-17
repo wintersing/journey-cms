@@ -155,5 +155,16 @@ public class NewsController {
 			return jsonObject.toJSONString();
 		}
 	}
+	
+	
+	@RequestMapping(value = "/newssDel/{idStr}", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String newssDel(Model model, @PathVariable("idStr") String idStr) {
+		String[] ids = idStr.split(",");
+		newsService.newssDel(ids);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("status", true);
+		return jsonObject.toJSONString();
+	}
 
 }

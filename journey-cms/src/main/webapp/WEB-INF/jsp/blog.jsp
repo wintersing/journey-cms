@@ -36,11 +36,14 @@
 			<i class="Hui-iconfont">&#xe665;</i> 游记
 		</button>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="r">共有数据：<strong>${count }</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a href="javascript:;" id="batchDel"
+				class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
+					批量删除</a> </span><span class="r">共有数据：<strong>${count }</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 		    <thead>
 		        <tr class="text-c">
+						<th width="40"><input name="" type="checkbox" value=""></th>
 		            <th width="70">ID</th>
 		            <th width="250">标题</th>
 		            <th width="80">城市</th>
@@ -55,6 +58,7 @@
 		    <tbody>
 		    <c:forEach var="blogItem" items="${blogList }">
 		        <tr class="text-c">
+					<td><input name="" type="checkbox" value="${blogItem.id }"></td>
 		            <td>${blogItem.id }</td>
 		            <td>${blogItem.title }</td>
 		            <td>${blogItem.city }</td>
@@ -101,11 +105,11 @@
 <script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $('.table-sort').dataTable({
-	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+	"aaSorting": [[ 8, "desc" ]],//默认第几个排序
 	"bStateSave": true,//状态保存
 	"aoColumnDefs": [
 	  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-	  {"orderable":false,"aTargets":[8]}// 制定列不参与排序
+	  {"orderable":false,"aTargets":[0,9]}// 制定列不参与排序
 	]
 });
 
@@ -191,6 +195,31 @@ function blogapi() {
 }
 
 
+$('#batchDel').click(function(){
+	 layer.confirm('确认要删除吗？', function(index) {
+       var str = "";
+       $('table input:checkbox:gt(0)').each(function(){
+           if(this.checked==true){
+               str += this.value + ',';
+           }
+       })
+
+       $.ajax({
+			type : 'GET',
+			url : '/blogsDel/' + str,
+			dataType : 'json',
+			success : function(data) {
+				layer.msg('删除成功，请刷新!', {
+					icon : 1,
+					time : 1000
+				});
+			},
+			error : function(data) {
+				console.log(data.msg);
+			},
+		});
+	 })
+   })
 </script>
 </body>
 </html>

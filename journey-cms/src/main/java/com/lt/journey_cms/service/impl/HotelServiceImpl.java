@@ -69,4 +69,10 @@ public class HotelServiceImpl implements HotelService {
 		hotelDao.hotelDel(id);
 	}
 
+	@Override
+	public void hotelsDel(String[] ids) {
+		// TODO Auto-generated method stub
+		hotelDao.hotelsDel(ids);
+	}
+
 }

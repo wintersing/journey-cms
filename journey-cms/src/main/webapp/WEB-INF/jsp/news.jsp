@@ -41,13 +41,15 @@
 		<button class="btn btn-success" onclick="newsapi();"><i class="Hui-iconfont">&#xe665;</i>从接口获取资讯</button>
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
-	 <span class="l">
-	 </span>
+	 <span class="l"><a href="javascript:;" id="batchDel"
+				class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
+					批量删除</a> </span>
 	  <span class="r">共有数据：<strong>${count }</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
 				<tr class="text-c">
+					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="150">ID</th>
 					<th width="130">标题</th>
 					<th width="300">URL</th>
@@ -60,6 +62,7 @@
 			<tbody>
 			<c:forEach var="newsItem" items="${newsList }">
 				<tr class="text-c">
+					<td><input name="" type="checkbox" value="${newsItem.id }"></td>
 					<td>${newsItem.id }</td>
 					<td>${newsItem.title }</td>
 					<td><a target="_blank" href="${newsItem.url }">${newsItem.url }</a></td>
@@ -108,10 +111,10 @@
 <script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
 $('.table-sort').dataTable({
-	"aaSorting": [[ 4, "desc" ]],//默认第几个排序
+	"aaSorting": [[ 5, "desc" ]],//默认第几个排序
 	"aoColumnDefs": [
 	  //{"bVisible": true, "aTargets": [ 7,8 ]} //控制列的隐藏显示
-	  {"orderable":false,"aTargets":[6]}// 制定列不参与排序
+	  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
 	]
 });
 
@@ -197,6 +200,33 @@ $(document).ready(function(){
 	$("#DataTables_Table_0_length").remove();
 	$("#DataTables_Table_0_filter").remove();
 }); 
+
+
+$('#batchDel').click(function(){
+	 layer.confirm('确认要删除吗？', function(index) {
+       var str = "";
+       $('table input:checkbox:gt(0)').each(function(){
+           if(this.checked==true){
+               str += this.value + ',';
+           }
+       })
+
+       $.ajax({
+			type : 'GET',
+			url : '/newssDel/' + str,
+			dataType : 'json',
+			success : function(data) {
+				layer.msg('删除成功，请刷新!', {
+					icon : 1,
+					time : 1000
+				});
+			},
+			error : function(data) {
+				console.log(data.msg);
+			},
+		});
+	 })
+   })
 
 </script>
 </body>

@@ -78,7 +78,7 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="/admin" data-title="评论列表" href="javascript:;">评论列表</a>
+						<li><a data-href="/comment" data-title="评论列表" href="javascript:;">评论列表</a>
 						</li>
 					</ul>
 				</dd>

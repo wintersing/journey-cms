@@ -52,4 +52,10 @@ public class BlogServiceImpl implements BlogService {
 		blogDao.blogDel(id);
 	}
 
+	@Override
+	public void blogsDel(String[] ids) {
+		// TODO Auto-generated method stub
+		blogDao.blogsDel(ids);
+	}
+
 }

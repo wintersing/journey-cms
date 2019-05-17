@@ -172,5 +172,16 @@ public class PlacesController {
 			return jsonObject.toJSONString();
 		}
 	}
+	
+	
+	@RequestMapping(value = "/placessDel/{idStr}", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String placessDel(Model model, @PathVariable("idStr") String idStr) {
+		String[] ids = idStr.split(",");
+		placesService.placessDel(ids);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("status", true);
+		return jsonObject.toJSONString();
+	}
 
 }

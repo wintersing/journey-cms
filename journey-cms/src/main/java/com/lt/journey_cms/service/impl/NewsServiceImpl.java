@@ -51,4 +51,10 @@ public class NewsServiceImpl implements NewsService {
 		newsDao.blogDel(id);
 	}
 
+	@Override
+	public void newssDel(String[] ids) {
+		// TODO Auto-generated method stub
+		newsDao.newssDel(ids);
+	}
+
 }

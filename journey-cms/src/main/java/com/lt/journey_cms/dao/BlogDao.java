@@ -29,4 +29,6 @@ public interface BlogDao {
 	@Delete("delete FROM blog WHERE id = #{id}")
 	public void blogDel(@Param("id")String id);
 
+	public void blogsDel(String[] ids);
+
 }

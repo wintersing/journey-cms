@@ -34,4 +34,6 @@ public interface HotelDao {
 	@Delete("delete FROM hotel WHERE id = #{id}")
 	public void hotelDel(@Param("id")String id);
 
+	public void hotelsDel(String[] ids);
+
 }

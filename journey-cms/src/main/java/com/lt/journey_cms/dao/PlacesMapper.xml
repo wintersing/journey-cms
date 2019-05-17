@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lt.journey_cms.dao.PlacesDao">
+	 <delete id="placessDel">
+        delete from places where id in
+        <foreach collection="array" open="(" separator="," close=")" item="id">
+            #{id}
+        </foreach>
+        
+    </delete>
 	
 	<resultMap type="PlacesDes" id="PalcesDesToGeoPoint">
 		<id column="id" property="id"/>
