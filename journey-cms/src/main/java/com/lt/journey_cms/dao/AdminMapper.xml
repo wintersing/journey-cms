@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.journey_cms.dao.AdminDao">
+
+	<insert id="addAdmin" parameterType="Admin" keyProperty="id" useGeneratedKeys="true">
+		insert into admin (adminname, sex, password, phone, role, createtime)
+		values(#{adminname},#{sex},#{password},#{phone},#{role},#{createtime})
+	</insert>
+</mapper>

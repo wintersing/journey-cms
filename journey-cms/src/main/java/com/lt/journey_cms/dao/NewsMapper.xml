@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.journey_cms.dao.NewsDao">
+
+	<insert id="addNews" parameterType="java.util.List">
+		INSERT IGNORE INTO news(id, title, url, catLabel2, recommend, updatetime) values
+		<foreach collection="list" item="news" separator=",">
+			(
+				#{news.id},#{news.title},#{news.url},#{news.catLabel2},#{news.recommend},#{news.updatetime}
+			)
+		</foreach>
+	</insert>
+	
+	
+	<update id="editBlog" parameterType="News">
+		update news SET 
+			title=#{title},
+			updatetime=#{updatetime},
+			recommend=#{recommend}
+		where 
+			id = #{id}
+	</update>
+</mapper>

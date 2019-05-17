@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.journey_cms.dao.HotelDao">
+	<insert id="addHotel" parameterType="java.util.List">
+		INSERT IGNORE INTO hotel
+		(id,brandName,
+		businessDistrict,geoPointID,openingHours,
+		commentCount,rating,tags,
+		facilities,infrastructures,
+		assistServices,city,description,
+		price,level,minPrice,
+		telephones,url,district,
+		address,hasWifi,title,
+		imageUrls,recommend,updatetime
+		)
+		values
+		<foreach collection="list" item="hotelDes" separator=",">
+			(
+			#{hotelDes.id},
+			#{hotelDes.brandName},
+			#{hotelDes.businessDistrict},
+			(SELECT
+				id
+			FROM
+				geopoint
+			WHERE
+				lon = ${hotelDes.geoPoint.lon}
+			AND lat = ${hotelDes.geoPoint.lat}),
+			#{hotelDes.openingHours},
+			#{hotelDes.commentCount},
+			#{hotelDes.rating},
+			#{hotelDes.tags},
+			#{hotelDes.facilities},
+			#{hotelDes.infrastructures},
+			#{hotelDes.assistServices},
+			#{hotelDes.city},
+			#{hotelDes.description},
+			#{hotelDes.price},
+			#{hotelDes.level},
+			#{hotelDes.minPrice},
+			#{hotelDes.telephones},
+			#{hotelDes.url},
+			#{hotelDes.district},
+			#{hotelDes.address},
+			#{hotelDes.hasWifi},
+			#{hotelDes.title},
+			#{hotelDes.imageUrls},
+			#{hotelDes.recommend},
+			#{hotelDes.updatetime}
+			)
+		</foreach>
+	</insert>
+	
+	
+	<select id="findHotelDes" parameterType="java.lang.String" resultType="Hotel" >
+		select 
+			id,
+			imageUrls,
+			title,
+			rating,
+			facilities,
+			infrastructures,
+			goodTagDist,
+			assistServices,
+			price,
+			minPrice,
+			description,
+			city,
+			district
+		from 
+			hotel 
+		where 
+			id = #{id}
+	</select>
+	
+		
+	<update id="editHotel" parameterType="HotelDes">
+		update hotel SET 
+			title=#{title},
+			brandName=#{brandName},
+			updatetime=#{updatetime},
+			businessDistrict=#{businessDistrict},  
+			city=#{city},
+			district=#{district},
+			minPrice=#{minPrice},
+			openingHours=#{openingHours},
+			description=#{description},
+			address=#{address},
+			recommend=#{recommend} 
+		where 
+			id = #{id}
+	</update>
+</mapper>
+
+
+
+
+

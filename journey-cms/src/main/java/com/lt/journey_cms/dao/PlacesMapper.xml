@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.journey_cms.dao.PlacesDao">
+	
+	<resultMap type="PlacesDes" id="PalcesDesToGeoPoint">
+		<id column="id" property="id"/>
+		<result column="location" property="location"/>
+		<result column="rating" property="rating"/>
+		<result column="rank" property="rank"/>
+		<result column="url" property="url"/>
+		<result column="country" property="country"/>
+		<result column="title" property="title"/>
+		<result column="subtitle" property="subtitle"/>
+		<result column="city" property="city"/>
+		<result column="imageUrls" property="imageUrls"/>
+		<result column="tipInfo" property="tipInfo"/>
+		<result column="openingHours" property="openingHours"/>
+		<result column="description" property="description"/>
+		<result column="price" property="price"/>
+		<result column="commentCount" property="commentCount"/>
+		<result column="recommend" property="recommend"/>
+		<result column="updatetime" property="updatetime"/>
+		<association property="geoPoint" javaType="GeoPoint">
+			<id column="id" property="id"/>
+			<result column="lon" property="lon"/>
+			<result column="lat" property="lat"/>
+		</association>
+	</resultMap>
+	
+	<insert id="addPlaces" parameterType="java.util.List">
+		INSERT IGNORE INTO places
+		(`id`,`location`,`rating`,`country`,title,subtitle,city,imageUrls,tipInfo,updatetime,
+		openingHours,description,price,commentCount,recommend,geoPointID)
+		values
+		<foreach collection="list" item="placesDes" separator=",">
+			(
+			#{placesDes.id},
+			#{placesDes.location},
+			#{placesDes.rating},
+			#{placesDes.country},
+			#{placesDes.title},
+			#{placesDes.subtitle},
+			#{placesDes.city},
+			#{placesDes.imageUrls},
+			#{placesDes.tipInfo},
+			#{placesDes.updatetime},
+			#{placesDes.openingHours},
+			#{placesDes.description},
+			#{placesDes.price},
+			#{placesDes.commentCount},
+			#{placesDes.recommend},
+			(SELECT `id` as `geoPointID` from geopoint where
+			`lon` = ${placesDes.geoPoint.lon} AND `lat` = ${placesDes.geoPoint.lat}))
+		</foreach>
+	</insert>
+	 
+	 <insert id="placesAdd" parameterType="PlacesDes">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">
+			SELECT UUID()
+		</selectKey>
+		
+		INSERT into places
+		(`id`,`location`,`rating`,`country`,title,subtitle,city,imageUrls,tipInfo,updatetime,
+		openingHours,description,price,commentCount,recommend,geoPointID)
+		values
+			(
+			#{id},
+			#{location},
+			#{rating},
+			#{country},
+			#{title},
+			#{subtitle},
+			#{city},
+			#{imageUrls},
+			#{tipInfo},
+			#{updatetime},
+			#{openingHours},
+			#{description},
+			#{price},
+			#{commentCount},
+			#{recommend},
+			#{geoPoint.id}
+		)
+	</insert> 
+
+	<select id="findPlaces" parameterType="java.lang.String" resultMap="PalcesDesToGeoPoint">
+		select * from places p, geopoint g where p.geoPointID = g.id AND p.id = #{id}
+	</select>
+	
+	<update id="editPlaces" parameterType="PlacesDes">
+		update places SET 
+			location=#{location},
+			updatetime=#{updatetime},
+			country=#{country},  
+			city=#{city},
+			title=#{title},
+			subtitle=#{subtitle},
+			tipInfo=#{tipInfo},
+			openingHours=#{openingHours},
+			description=#{description},
+			price=#{price},
+			recommend=#{recommend} 
+		where 
+			id = #{id}
+	</update>
+	
+	
+</mapper>

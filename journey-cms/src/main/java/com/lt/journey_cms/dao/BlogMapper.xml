@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.journey_cms.dao.BlogDao">
+
+	<insert id="addBlog" parameterType="java.util.List">
+		INSERT IGNORE INTO blog
+		(
+			id,imageUrls,
+			avatarUrl,likeCount,cityid,
+			commentCount,viewCount,
+			city,title,publishDateStr,
+			posterScreenName,content,recommend,updatetime
+		)
+		values
+		<foreach collection="list" item="blog" separator=",">
+			(
+				#{blog.id},#{blog.imageUrls},
+				#{blog.avatarUrl},#{blog.likeCount},#{blog.cityid},
+				#{blog.commentCount},#{blog.viewCount},
+				#{blog.city},#{blog.title},#{blog.publishDateStr},
+				#{blog.posterScreenName},#{blog.content},#{blog.recommend},#{blog.updatetime}
+			)
+		</foreach>
+	</insert>
+
+
+	<update id="editBlog" parameterType="BlogDes">
+		update blog SET 
+			title=#{title},
+			city=#{city},
+			content=#{content},
+			updatetime=#{updatetime},
+			recommend=#{recommend} 
+		where 
+			id = #{id}
+	</update>
+</mapper>
