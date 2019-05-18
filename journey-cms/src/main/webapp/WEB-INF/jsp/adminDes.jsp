@@ -69,19 +69,19 @@
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
 		<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 			<div class="radio-box">
-				<input name="role" type="radio" id="role-1" value="1" checked>
-				<label for="role-1">超级管理员</label>
+				<input type="radio" id="role-2" value="0" name="role" checked>
+				<label for="role-2">普通管理员</label>
 			</div>
 			<div class="radio-box">
-				<input type="radio" id="role-2" value="0" name="role">
-				<label for="role-2">普通管理员</label>
+				<input name="role" type="radio" id="role-1" value="1">
+				<label for="role-1">超级管理员</label>
 			</div>
 		</div>
 	</div>
 	<div class="row cl">
 		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-			<button class="btn btn-default radius" type="button"><a href="/admin">&nbsp;&nbsp;取消&nbsp;&nbsp;</a></button>
+			<button class="btn btn-default radius" type="button"><a href="/admin">&nbsp;&nbsp;返回&nbsp;&nbsp;</a></button>
 		</div>
 	</div>
 	</form>
