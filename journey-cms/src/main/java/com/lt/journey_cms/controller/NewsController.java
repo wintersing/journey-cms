@@ -44,7 +44,7 @@ public class NewsController {
 	 * @return
 	 */
 	@RequestMapping("/news")
-	public String blog(Model model, Integer page) {
+	public String news(Model model, Integer page) {
 		//酒店
 		if (page == null) {
 			page = 1;
@@ -65,7 +65,7 @@ public class NewsController {
 	 * @return
 	 */
 	@RequestMapping("/news/{id}")
-	public String blogDes(Model model, @PathVariable("id") String id) {
+	public String newsDes(Model model, @PathVariable("id") String id) {
 		News news = newsService.findNews(id);
 		model.addAttribute("newsItem", news);
 		return "newsDes";
@@ -97,7 +97,7 @@ public class NewsController {
 	 */
 	@RequestMapping(value = "/newsDel/{id}", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String blogDel(Model model, @PathVariable("id") String id) {
+	public String newsDel(Model model, @PathVariable("id") String id) {
 
 		newsService.blogDel(id);
 		JSONObject jsonObject = new JSONObject();

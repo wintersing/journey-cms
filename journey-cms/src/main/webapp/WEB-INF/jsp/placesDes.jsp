@@ -85,13 +85,13 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>经度：</label>
+			<label class="form-label col-xs-4 col-sm-2">经度：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="${placesItem.geoPoint.lon }" placeholder="输入地址" id="geoPoint_lon" name="geoPoint.lon">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>纬度：</label>
+			<label class="form-label col-xs-4 col-sm-2">纬度：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="${placesItem.geoPoint.lat }" placeholder="输入地址" id="geoPoint_lat" name="geoPoint.lat">
 			</div>

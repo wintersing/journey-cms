@@ -29,7 +29,7 @@
 <div class="page-container">
 	<div class="text-c"> 参数设置：
 		<select id="catLabel2" name="catLabel2" class="input-text" style="width: 150px">
-			<option>请选择咨询类型</option>
+			<option>请选择资讯类型</option>
 			<option value="建筑">建筑</option>
 			<option value="旅游产业">旅游产业</option>
 			<option value="自驾游">自驾游</option>
@@ -38,7 +38,7 @@
 			<option value="手工艺">手工艺</option>
 		</select>
 		<input type="text" name=size"" id="size" placeholder="数量，推荐100条以上" style="width: 150px" class="input-text">
-		<button class="btn btn-success" onclick="newsapi();"><i class="Hui-iconfont">&#xe665;</i>从接口获取资讯</button>
+		<button class="btn btn-success" onclick="newsapi();"><i class="Hui-iconfont">&#xe665;</i>请求资讯API</button>
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 	 <span class="l"><a href="javascript:;" id="batchDel"

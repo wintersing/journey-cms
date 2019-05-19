@@ -41,9 +41,7 @@
 	</nav>
 	<div class="page-container">
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"> <a class="btn btn-primary radius"
-				 href="/addPlaces"><i
-					class="Hui-iconfont">&#xe600;</i> 添加景点</a></span> <span class="r">共有数据：<strong>${count }</strong>
+			 <span class="r">共有数据：<strong>${count }</strong>
 				条
 			</span>
 		</div>

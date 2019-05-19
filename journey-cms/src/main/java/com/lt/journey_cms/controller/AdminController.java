@@ -40,12 +40,12 @@ public class AdminController {
 		if (admin_ == null) {
 			jsonObject = new JSONObject();
 			jsonObject.put("status", false);
-			jsonObject.put("msg", "用户名或密码错误！");
+			jsonObject.put("msg", "管理员名称或密码错误！");
 			return jsonObject.toJSONString();
 		}else if(!admin.getPassword().equals(admin_.getPassword())) {
 			jsonObject = new JSONObject();
 			jsonObject.put("status", false);
-			jsonObject.put("msg", "用户名或密码错误！");
+			jsonObject.put("msg", "管理员名称或密码错误！");
 			return jsonObject.toJSONString();
 		}
 		req.getSession().setAttribute("admin_session", admin_);

@@ -45,7 +45,7 @@
 			<input type="text" name=cityName"" id="cityName" placeholder="城市" style="width: 150px" class="input-text">
 			<input type="text" name="pageToken" id="pageToken" placeholder="页数" class="input-text" style="width: 120px;">
 			<button  class="btn btn-success" type="button" onclick="placesapi();">
-				<i class="Hui-iconfont">&#xe665;</i> 从接口获取景点
+				<i class="Hui-iconfont">&#xe665;</i> 请求景点API
 			</button>
 		</div>
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
@@ -58,8 +58,7 @@
 			</span>
 		</div>
 		<div class="mt-20">
-			<table
-				class="table table-border table-bordered table-bg table-hover table-sort">
+			<table	class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
 						<th width="40"><input name="" type="checkbox" value=""></th>
@@ -192,7 +191,7 @@
 			});
 		}
 
-		/*图片-删除*/
+		/*景点-删除*/
 		function placesDel(obj, id) {
 			layer.confirm('确认要删除吗？', function(index) {
 				$.ajax({
@@ -238,7 +237,7 @@
 					},
 				});
 			 })
-	        })
+	        });
 	</script>
 </body>
 </html>

@@ -61,7 +61,7 @@
 						<li><a data-href="/blog" data-title="游记管理" href="javascript:void(0)">游记管理</a></li>
 					</ul>
 					<ul>
-						<li><a data-href="/news" data-title="新闻管理" href="javascript:void(0)">新闻管理</a></li>
+						<li><a data-href="/news" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
 					</ul>
 				</dd>
 			</dl>

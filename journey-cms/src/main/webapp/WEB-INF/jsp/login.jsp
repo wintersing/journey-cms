@@ -17,14 +17,16 @@
 		<div class="input">
 			<div class="log">
 				<form>
-				<div class="name">
-					<label>用户名</label><input type="text" class="text" id="adminname" placeholder="用户名" name="adminname" tabindex="1">
-				</div>
-				<div class="pwd">
-					<label>密　码</label><input type="password" class="text" id="password" placeholder="密码" name="password" tabindex="2">
-					<input id="login" type="button" class="submit" tabindex="3" value="登录">
-					<div class="check"></div>
-				</div>
+					<div class="name">
+						<label>用户名</label>
+						<input type="text" class="text" id="adminname" placeholder="用户名" name="adminname" tabindex="1">
+					</div>
+					<div class="pwd">
+						<label>密　码</label>
+						<input type="password" class="text" id="password" placeholder="密码" name="password" tabindex="2">
+						<input id="login" type="button" class="submit" tabindex="3" value="登录">
+						<div class="check"></div>
+					</div>
 				</form>
 				<div class="tip"></div>
 			</div>

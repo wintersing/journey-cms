@@ -41,7 +41,7 @@
 			</select>
 			<input type="text" name="pageToken" id="pageToken" placeholder="页数" class="input-text" style="width: 120px;">
 			<button  class="btn btn-success" type="button" onclick="hotelapi();">
-				<i class="Hui-iconfont">&#xe665;</i> 从接口获取景点
+				<i class="Hui-iconfont">&#xe665;</i> 请求酒店API
 			</button>
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a href="javascript:;" id="batchDel"
@@ -57,8 +57,8 @@
 					<th width="110">品牌</th>
 					<th width="70">城市</th>
 					<th width="70">市区</th>
-					<th width="120">星级</th>
-					<th width="40">价格</th>
+					<th width="110">星级</th>
+					<th width="70">价格</th>
 					<th width="60">评分</th>
 					<th width="80">推荐状态</th>
 					<th width="150">更新时间</th>
@@ -75,7 +75,7 @@
 					<td>${hotelItem.city }</td>
 					<td>${hotelItem.district }</td>
 					<td>${hotelItem.level }</td>
-					<td>${hotelItem.minPrice }</td>
+					<td>${hotelItem.price }</td>
 					<td>${hotelItem.rating }</td>
 					<c:if test="${hotelItem.recommend eq 0 }">
 						<td>未推荐</td>

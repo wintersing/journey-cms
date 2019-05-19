@@ -33,7 +33,7 @@
 		<input type="text" name=cityName"" id="cityName" placeholder="城市" style="width: 150px" class="input-text">
 		<input type="text" name="pageToken" id="pageToken" placeholder="页数" class="input-text" style="width: 120px;">
 		<button  class="btn btn-success" type="button" onclick="blogapi();">
-			<i class="Hui-iconfont">&#xe665;</i> 游记
+			<i class="Hui-iconfont">&#xe665;</i> 请求游记API
 		</button>
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a href="javascript:;" id="batchDel"
