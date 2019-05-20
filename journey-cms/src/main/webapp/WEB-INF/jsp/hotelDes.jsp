@@ -42,12 +42,6 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">商圈：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="${hotelItem.businessDistrict }" placeholder="输入子标题" id="" name="businessDistrict">
-			</div>
-		</div>
-		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">城市：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="${hotelItem.city }" placeholder="开放时间" id="" name="city">
@@ -66,12 +60,6 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">价格：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="${hotelItem.minPrice }" placeholder="输入城市" id="" name="minPrice">
-			</div>
-		</div>
-		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">入住时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="${hotelItem.openingHours }" placeholder="输入价格" id="" name="openingHours">
@@ -81,12 +69,6 @@
 			<label class="form-label col-xs-4 col-sm-2">地址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="${hotelItem.address }" placeholder="输入地址" id="" name="address">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">评论数：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input disabled="disabled" type="text" class="input-text" value="${hotelItem.commentCount }" placeholder="提示消息" id="" name="commentCount">
 			</div>
 		</div>
 		<div class="row cl">

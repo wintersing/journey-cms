@@ -14,13 +14,13 @@
 	<insert id="addHotel" parameterType="java.util.List">
 		INSERT IGNORE INTO hotel
 		(id,brandName,
-		businessDistrict,geoPointID,openingHours,
-		commentCount,rating,tags,
+		geoPointID,openingHours,
+		rating,tags,
 		facilities,infrastructures,
 		assistServices,city,description,
-		price,level,minPrice,
-		telephones,url,district,
-		address,hasWifi,title,
+		price,level,
+		telephones,district,
+		address,title,
 		imageUrls,recommend,updatetime
 		)
 		values
@@ -28,7 +28,6 @@
 			(
 			#{hotelDes.id},
 			#{hotelDes.brandName},
-			#{hotelDes.businessDistrict},
 			(SELECT
 			id
 			FROM
@@ -37,7 +36,6 @@
 			lon = ${hotelDes.geoPoint.lon}
 			AND lat = ${hotelDes.geoPoint.lat}),
 			#{hotelDes.openingHours},
-			#{hotelDes.commentCount},
 			#{hotelDes.rating},
 			#{hotelDes.tags},
 			#{hotelDes.facilities},
@@ -47,12 +45,9 @@
 			#{hotelDes.description},
 			#{hotelDes.price},
 			#{hotelDes.level},
-			#{hotelDes.minPrice},
 			#{hotelDes.telephones},
-			#{hotelDes.url},
 			#{hotelDes.district},
 			#{hotelDes.address},
-			#{hotelDes.hasWifi},
 			#{hotelDes.title},
 			#{hotelDes.imageUrls},
 			#{hotelDes.recommend},
@@ -90,10 +85,8 @@
 		title=#{title},
 		brandName=#{brandName},
 		updatetime=#{updatetime},
-		businessDistrict=#{businessDistrict},
 		city=#{city},
 		district=#{district},
-		minPrice=#{minPrice},
 		openingHours=#{openingHours},
 		description=#{description},
 		address=#{address},
